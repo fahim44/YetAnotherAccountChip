@@ -16,19 +16,8 @@
 
 package com.lamounjush.yetanotheraccountchip
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.ImageView
+import android.content.Context
+import android.util.TypedValue
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val imageView : ImageView = findViewById(R.id.image)
-        imageView.setImageDrawable(ChipDrawableBuilder()
-            .setTextSizeInSp(this, 30.0f)
-            .setChipTextStyle(ChipTextStyle.FIRST_CHAR_OF_WORDS_UPPERCASE)
-            .build("Jon Doe"))
-    }
-}
+fun Number.spToPx(context: Context) = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_SP, this.toFloat(), context.resources.displayMetrics).toInt()

@@ -16,48 +16,48 @@
 
 package com.lamounjush.yetanotheraccountchip
 
-import android.R.attr.text
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.text.TextPaint
+import androidx.annotation.ColorInt
 
 
-class AccountChipDrawable : Drawable() {
+class AccountChipDrawable(
+    private val backgroundShape: Int,
+    @ColorInt private val backgroundColor: Int,
+    private val typeface: Typeface,
+    private val textSizeInPx: Float,
+    @ColorInt private val textColor: Int,
+    private val chipTextStyle: ChipTextStyle,
+    private val text: String
+) : Drawable() {
 
-    private var drawable : Drawable? = null
-
+    private var drawable: Drawable? = null
 
     override fun draw(canvas: Canvas) {
         // draw background oval
         val gradientDrawable = GradientDrawable()
         gradientDrawable.bounds = bounds
-
-        gradientDrawable.shape = GradientDrawable.OVAL
-        gradientDrawable.setColor(Color.RED)
-
+        gradientDrawable.shape = backgroundShape
+        gradientDrawable.setColor(backgroundColor)
         drawable = gradientDrawable
         drawable?.draw(canvas)
 
         // draw text
         val textPaint = TextPaint(Paint.ANTI_ALIAS_FLAG)
-
-        textPaint.color = Color.WHITE
-        textPaint.typeface = Typeface.create("Arial", Typeface.BOLD)
-        textPaint.textSize = 50.0f
-
-
+        textPaint.color = textColor
+        textPaint.typeface = typeface
+        textPaint.textSize = textSizeInPx
         val rect = Rect()
         canvas.getClipBounds(rect)
         val cHeight = rect.height()
         val cWidth = rect.width()
         textPaint.textAlign = Paint.Align.LEFT
-
-        textPaint.getTextBounds("FSC", 0, "FSC".length, rect)
+        textPaint.getTextBounds(text, 0, text.length, rect)
         val textX = cWidth / 2f - rect.width() / 2f - rect.left
         val textY = cHeight / 2f + rect.height() / 2f - rect.bottom
-
-        canvas.drawText("FSC", textX, textY, textPaint)
+        canvas.drawText(text, textX, textY, textPaint)
     }
 
     override fun setAlpha(alpha: Int) {

@@ -16,19 +16,14 @@
 
 package com.lamounjush.yetanotheraccountchip
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.ImageView
+import android.content.Context
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class YetAnotherAccountChip {
 
-        val imageView : ImageView = findViewById(R.id.image)
-        imageView.setImageDrawable(ChipDrawableBuilder()
-            .setTextSizeInSp(this, 30.0f)
-            .setChipTextStyle(ChipTextStyle.FIRST_CHAR_OF_WORDS_UPPERCASE)
-            .build("Jon Doe"))
+    companion object {
+        private var context : Context? = null
+        fun initialize(context: Context) {
+            this.context = context
+        }
     }
 }

@@ -14,21 +14,20 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.lamounjush.yetanotheraccountchip
+package com.lamounjush.yetanotheraccountchip;
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.ImageView
+public enum ChipTextStyle {
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val imageView : ImageView = findViewById(R.id.image)
-        imageView.setImageDrawable(ChipDrawableBuilder()
-            .setTextSizeInSp(this, 30.0f)
-            .setChipTextStyle(ChipTextStyle.FIRST_CHAR_OF_WORDS_UPPERCASE)
-            .build("Jon Doe"))
-    }
+    FIRST_CHAR,
+    FIRST_CHAR_UPPERCASE,
+    FIRST_CHAR_LOWERCASE,
+    FIRST_TWO_CHAR,
+    FIRST_TWO_CHAR_UPPERCASE,
+    FIRST_TWO_CHAR_LOWERCASE,
+    FIRST_THREE_CHAR,
+    FIRST_THREE_CHAR_UPPERCASE,
+    FIRST_THREE_CHAR_LOWERCASE,
+    FIRST_CHARS_OF_WORDS,
+    FIRST_CHAR_OF_WORDS_UPPERCASE,
+    FIRST_CHAR_OF_WORDS_LOWERCASE
 }
