@@ -29,7 +29,6 @@ class AccountChipDrawable(
     private val typeface: Typeface,
     private val textSizeInPx: Float,
     @ColorInt private val textColor: Int,
-    private val chipTextStyle: ChipTextStyle,
     private val text: String
 ) : Drawable() {
 

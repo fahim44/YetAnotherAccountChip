@@ -22,7 +22,6 @@ import android.graphics.Typeface;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.Locale;
 
@@ -32,8 +31,10 @@ public class ChipDrawableBuilder {
     private Typeface typeface = DefaultConfiguration.getTypeface();
     private float textSizeInPx = DefaultConfiguration.getTextSizeInPx();
     private ChipTextStyle chipTextStyle = DefaultConfiguration.getChipTextStyle();
-    private @ColorInt Integer backgroundColor;
-    private @ColorInt Integer textColor;
+    private @ColorInt
+    Integer backgroundColor;
+    private @ColorInt
+    Integer textColor;
 
     public ChipDrawableBuilder setBackgroundShape(int backgroundShape) {
         this.backgroundShape = backgroundShape;
@@ -69,7 +70,7 @@ public class ChipDrawableBuilder {
 
     @NonNull
     public AccountChipDrawable build(String account) {
-       int index = Math.abs(account.hashCode());
+        int index = Math.abs(account.hashCode());
         return build(account, index);
     }
 
@@ -84,7 +85,7 @@ public class ChipDrawableBuilder {
         } else {
             account = "";
         }
-        return new AccountChipDrawable(backgroundShape, backgroundColor, typeface, textSizeInPx, textColor, chipTextStyle, account);
+        return new AccountChipDrawable(backgroundShape, backgroundColor, typeface, textSizeInPx, textColor, account);
     }
 
     private String getFormattedText(String account) {
