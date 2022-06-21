@@ -3,22 +3,30 @@ General Android account drawable generator
 
 <a href="https://www.buymeacoffee.com/fahim44" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
+[![](https://jitpack.io/v/fahim44/YetAnotherAccountChip.svg)](https://jitpack.io/#fahim44/YetAnotherAccountChip)
+
+
 Dynamic account icon drawable generator for android.
+
+![example](https://raw.githubusercontent.com/fahim44/YetAnotherAccountChip/main/example.png)
 
 ## SetUp
 
 Add it in your project level `build.gradle` at the end of repositories:
 ```gradle
-repositories {
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-   }
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
 ```
 
 Add the dependency in your app level `build.gradle` file:
 ```gradle
 dependencies {
-   }
+        implementation 'com.github.fahim44:YetAnotherAccountChip:{latest_version}'
+}
 ```
 
 ## Example
